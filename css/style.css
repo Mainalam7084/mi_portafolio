@@ -1,281 +1,101 @@
-/* Reset & base */
+/* === Reset & Base (Dark Theme by Default) === */
 *, *::before, *::after {
-  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
-}
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  background: var(--bg-light);
-  color: var(--text-light);
-  line-height: 1.6;
-  transition: background 0.3s, color 0.3s; /* Smooth transition for theme changes */
-}
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color 0.3s; /* Smooth transition for link hover */
-}
-a:hover {
-  color: var(--accent-hover);
+  box-sizing: border-box;
 }
 
-/* CSS Variables for theming */
 :root {
-  --accent: #39ff14; /* Accent color (neon green) */
-  --accent-hover: #2ecc40; /* Accent color on hover */
-  --bg-light: #fff; /* Background color for light mode */
-  --bg-dark: #121212; /* Background color for dark mode */
-  --text-light: #111; /* Text color for light mode */
-  --text-dark: #eee; /* Text color for dark mode */
-  --gray-light: #f5f5f5; /* Light gray for backgrounds/elements */
-  --gray-dark: #333; /* Dark gray for backgrounds/elements in dark mode */
-  --heading-color-light: #2c2c2c; /* Heading color for light mode */
-  --heading-color-dark: #f5f5f5;  /* Heading color for dark mode */
+  --accent: #39ff14;
+  --accent-hover: #2ecc40;
+  --bg-dark: #121212;
+  --text-dark: #eee;
+  --gray-dark: #333;
+  --card-bg: #2a2a2a;
+  --heading-color-dark: #f5f5f5;
 }
 
-/* Dark Mode Styles */
-body.dark {
-  background: var(--bg-dark);
-  color: var(--text-dark);
-}
-body.dark header {
-  background: #222;
-  border-color: #444;
-}
-
-body.dark .portfolio-title {
-  color: var(--text-dark);
-}
-
-/* START: Experience Section Styles */
-.experience-item {
-  background-color: var(--gray-light);
-  padding: 1.25rem 1.75rem; /* Aumentado un poco el padding lateral */
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.07);
-  transition: background-color 0.3s, box-shadow 0.3s;
-  margin-bottom: 1.75rem; /* Espacio entre items de experiencia */
-  text-align: left; /* Asegura alineación a la izquierda */
-}
-
-body.dark .experience-item {
-  background-color: #2a2a2a; /* Ligeramente más claro que --gray-dark para contraste */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.experience-item h4 {
-  font-size: 1.25rem; /* Un poco más grande para el título del puesto */
-  color: var(--accent);
-  margin-top: 0;
-  margin-bottom: 0.4rem; /* Menos espacio antes de las fechas */
-  font-weight: 700; /* Más énfasis en el título */
-}
-
-.experience-item .experience-dates {
-  font-size: 0.9rem;
-  font-style: italic;
-  color: var(--text-light);
-  opacity: 0.8;
-  margin-bottom: 0.85rem; /* Espacio antes de la lista de tareas */
-  display: block; /* Asegura que ocupe su propia línea */
-}
-
-body.dark .experience-item .experience-dates {
-  color: var(--text-dark);
-}
-
-.experience-item ul {
-  list-style: disc; /* Viñetas estándar */
-  padding-left: 1.5rem; /* Indentación para las viñetas */
-  margin: 0; /* Reset de margen para la lista */
-}
-
-.experience-item li {
-  margin-bottom: 0.6rem; /* Espacio entre responsabilidades */
-  line-height: 1.65;
-  font-size: 1rem;
-}
-/* END: Experience Section Styles */
-
-/* Smooth scrolling behavior */
 html {
   scroll-behavior: smooth;
 }
 
-/* Header Styles */
-header {
-  position: sticky; /* Makes header stick to the top on scroll */
-  top: 0;
-  background: var(--bg-light);
-  border-bottom: 1px solid #ddd;
-  z-index: 1000; /* Ensures header stays on top of other content */
-  display: flex;
-  justify-content: space-between; /* Spaces out logo/nav and theme toggle */
-  align-items: center;
-  padding: 0.75rem 2rem;
-  transition: background-color 0.3s, border-color 0.3s;
-  padding: 0.75rem 1rem;
-  /*Ajusta el padding si es necesario para móvil */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-dark);
+  line-height: 1.6;
 }
 
-/* Navigation Styles */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* === Header & Navigation === */
+header {
+  position: sticky;
+  top: 0;
+  background: #222;
+  border-bottom: 1px solid #444;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1rem;
+}
+
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
-  margin: 0; padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  margin: 0;
+  padding: 0;
 }
+
 nav ul li {
   font-weight: 600;
 }
+
 nav ul li a {
-  color: inherit; /* Nav links inherit color from parent (for theme switching) */
+  color: inherit;
   font-size: 1rem;
 }
 
-/* COMIENZO: Estilos para Botón Hamburguesa */
-.menu-toggle-btn {
-  display: none; /* Oculto por defecto, se muestra en media query para móviles */
-  background: none;
-  border: none;
-  color: inherit; /* Hereda el color del texto del header */
-  font-size: 1.8rem; /* Tamaño del contenedor del icono */
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 1005; /* Asegura que esté visible sobre otros elementos si es necesario */
-  /* Si usas flexbox en el header y quieres que aparezca primero: order: -1; */
-}
-
-.menu-toggle-icon {
-  display: block;
-  position: relative;
-  width: 28px; /* Ancho de las barras */
-  height: 3px; /* Grosor de las barras */
-  background-color: var(--text-light); /* Color de las barras en tema claro */
-  border-radius: 3px;
-  transition: all 0.3s ease-in-out;
-}
-body.dark .menu-toggle-icon {
-  background-color: var(--text-dark); /* Color de las barras en tema oscuro */
-}
-
-.menu-toggle-icon::before,
-.menu-toggle-icon::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: inherit; /* Hereda el color de la barra central */
-  border-radius: 3px;
-  transition: all 0.3s ease-in-out;
-}
-
-.menu-toggle-icon::before {
-  top: -8px; /* Espacio para la barra superior */
-}
-
-.menu-toggle-icon::after {
-  bottom: -8px; /* Espacio para la barra inferior */
-}
-
-/* Animación del botón hamburguesa a 'X' cuando el menú está activo */
-.menu-toggle-btn[aria-expanded="true"] .menu-toggle-icon {
-  background-color: transparent; /* La barra del medio se vuelve invisible */
-}
-
-.menu-toggle-btn[aria-expanded="true"] .menu-toggle-icon::before {
-  transform: translateY(8px) rotate(45deg); /* Barra superior rota */
-}
-
-.menu-toggle-btn[aria-expanded="true"] .menu-toggle-icon::after {
-  transform: translateY(-8px) rotate(-45deg); /* Barra inferior rota */
-}
-/* FIN: Estilos para Botón Hamburguesa */
-
-/* Light/Dark Theme Toggle Button Styles */
-#theme-toggle {
-  background: var(--accent);
-  border: none;
-  border-radius: 20px;
-  width: 40px;
-  height: 24px;
-  cursor: pointer;
-  position: relative; /* For positioning the pseudo-element (the switch) */
-  outline: none;
-  transition: background 0.3s;
-  flex-shrink: 0; /* Prevent button from shrinking in flex container */
-}
-#theme-toggle::before { /* The moving part of the toggle switch */
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 20px;
-  height: 20px;
-  background: #111;
-  border-radius: 50%;
-  transition: transform 0.3s; /* Smooth slide animation */
-}
-body.dark #theme-toggle::before {
-  transform: translateX(16px); /* Moves switch to the right in dark mode */
-  background: #eee;
-}
-
-/* Hero Section Styles */
 .hero {
-  position: relative; /* For positioning video or other absolute elements inside */
+  position: relative;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden; /* Prevents content (like video) from overflowing */
+  align-items: flex-start; /* Cambiado para alinear a la izquierda */
+  text-align: left;         /* Cambiado para alinear el texto a la izquierda */
+  overflow: hidden;
   padding: 0 1rem;
   color: #fff;
   background: #000;
 }
-.hero-content {
-  position: relative; /* To ensure it's above any background video/image */
-  z-index: 1;
-  max-width: 700px;
-}
-.hero h1 {
-    /* Hero Section Styles */
-  .hero {
-    position: relative; /* For positioning video or other absolute elements inside */
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden; /* Prevents content (like video) from overflowing */
-    padding: 0 1rem;
-    color: #fff;
-    background: #000;
-  }
-  .hero-content {
-    position: relative; /* To ensure it's above any background video/image */
-    z-index: 1;
-    max-width: 700px;
-  }
-  .hero h1 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Fluid font size: Min, Preferred (scales with viewport), Max */
-    margin-bottom: 0.25rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-shadow: 0 0 8px rgba(0,0,0,0.6); /* Adds readability over varied backgrounds */
-  }
-  .hero p.tagline {
-    font-style: italic;
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 0 5px rgba(0,0,0,0.5);
-  }
 
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 550px;      /* Reducimos el ancho para dar espacio al 3D */
+  padding-left: 5vw;     /* Añadimos un margen izquierdo responsive */
 }
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 8px rgba(0,0,0,0.6);
+}
+
 .hero p.tagline {
   font-style: italic;
   font-size: 1.25rem;
@@ -283,7 +103,6 @@ body.dark #theme-toggle::before {
   text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
-/* Accent Button */
 .btn-accent {
   background: var(--accent);
   color: #111;
@@ -296,94 +115,42 @@ body.dark #theme-toggle::before {
   box-shadow: 0 0 12px var(--accent);
   transition: background 0.3s, box-shadow 0.3s;
 }
+
 .btn-accent:hover {
   background: var(--accent-hover);
   box-shadow: 0 0 20px var(--accent-hover);
 }
 
-/* General Section Styles */
+/* === General Section Styles === */
 section {
   padding: 4rem 1.5rem;
   max-width: 1100px;
   margin: 0 auto;
   position: relative;
-  overflow-y: hidden; /* O auto, según necesites para el contenido vertical */
-  /* overflow-x será 'visible' por defecto, permitiendo que la barra se desborde horizontalmente */
-}
-/* Neon Text Bar for Sections */
-.section-neon-text-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto; /* Se ajusta al contenido del texto */
-  padding: 8px 0; /* Espaciado vertical para la barra */
-  pointer-events: none; /* Para que no interfiera con clics en la sección */
-  overflow: hidden;   /* MUY IMPORTANTE: para el efecto marquesina */
-  z-index: 5;
-  text-align: left;
+  overflow-x: hidden;
 }
 
-.section-neon-text-bar .neon-text-wrapper {
-  display: inline-block; /* Mantenemos este cambio crucial de antes */
-  white-space: nowrap;
-  animation: marquee-scroll 5s linear infinite;
-}
-
-.section-neon-text-bar .neon-text-content {
-  display: inline-block;
-  padding-right: 60px; /* Espacio entre las repeticiones del texto */
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(0.8rem, 1.8vw, 1.1rem);
-  font-weight: 700;
-  color: var(--accent);
-  text-shadow:
-    0 0 4px var(--accent),
-    0 0 8px var(--accent),
-    0 0 12px var(--accent),
-    0 0 16px var(--accent-hover),
-    0 0 20px var(--accent-hover),
-    0 0 24px rgba(255, 255, 255, 0.5);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  animation: neon-text-pulse 2.5s infinite alternate ease-in-out;
-  /* Para depuración, puedes añadir un borde temporal:
-  border: 1px solid lime; */
-}
-
-/* Animación para el scroll de la marquesina */
-@keyframes marquee-scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-.section { /* For scroll reveal animation */
+.section {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.section.visible { /* Class added by JS when section is in view */
+
+.section.visible {
   opacity: 1;
   transform: none;
 }
 
-/* General Section Title Styles */
 .section-title {
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   margin-bottom: 2rem;
-  font-size: clamp(1.75rem, 4vw, 2.5rem); /* Fluid font size */
-  color: var(--heading-color-light);
-}
-body.dark .section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   color: var(--heading-color-dark);
 }
 
-/* About Me Section */
+/* === About Me Section === */
 .about-container {
   display: flex;
   align-items: flex-start;
@@ -392,16 +159,15 @@ body.dark .section-title {
   margin: 2rem auto;
   padding: 1rem;
   flex-wrap: wrap;
-  /* Scroll reveal animation for this container */
   transform: translateY(50px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.about-container.visible { /* Class added by JS for scroll reveal */
+
+.about-container.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* About Me - Photo Container */
 .about-container .photo-container {
   width: 100%;
   max-width: 300px;
@@ -411,38 +177,31 @@ body.dark .section-title {
   border: 3px solid var(--accent);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
-  /* Optional: aspect-ratio: 1 / 1; or height: 300px; */
-  margin: 0 auto 1rem auto; /* Center container if narrower, add bottom margin */
-  flex-shrink: 0; /* Prevent photo container from shrinking */
+  margin: 0 auto 1rem auto;
+  flex-shrink: 0;
 }
+
 .about-container .photo-container:hover {
   transform: scale(1.05);
   box-shadow: 0 0 35px rgba(57, 255, 20, 0.5);
 }
 
-/* About Me - Photo Image */
 .about-container .about-photo {
   display: block;
   width: 100%;
-  height: 100%;   /* Works best if parent has aspect-ratio or fixed height. Use 'auto' for natural image height. */
-  object-fit: cover; /* Ensures the image covers the container, may crop */
+  height: 100%;
+  object-fit: cover;
   filter: contrast(1.1) saturate(1.2);
   transition: filter 0.4s ease;
-  border-radius: 0; /* Cambiado de 100px a 0. El contenedor .photo-container se encargará del redondeo. */
 }
 
-/* About Me - Text Content */
 .about-text {
   flex: 1;
   font-size: 1.1rem;
-  color: inherit; /* Inherits text color for theme changes */
+  color: var(--text-dark);
   text-align: justify;
 }
-body.dark .about-text { /* Explicit dark mode text color for about section */
-  color: var(--text-dark);
-}
 
-/* Skills Icons (in "Sobre mí" section) */
 .skills-icons {
   margin-top: 1rem;
   display: flex;
@@ -450,229 +209,360 @@ body.dark .about-text { /* Explicit dark mode text color for about section */
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+
 .skills-icons img {
   width: 40px;
   height: 40px;
-  cursor: pointer; /* Indicates interactivity, though purely visual here */
+  cursor: pointer;
   transition: transform 0.3s ease, filter 0.3s ease;
   filter: grayscale(70%);
 }
+
 .skills-icons img:hover {
   filter: none;
   transform: scale(1.2);
   filter: drop-shadow(0 0 8px var(--accent));
 }
 
-/* Habilidades Técnicas - Detailed List (New Styles) */
-.skills-detailed-list {
-  max-width: 800px; /* Adjust as needed for content width */
-  margin: 2rem auto 0 auto; /* Center it and add top margin */
-  text-align: left; /* Ensure text is left-aligned within this container */
-}
-
-.skill-category {
-  margin-bottom: 2.5rem; /* Space between categories */
-  padding: 1.5rem;
-  background-color: var(--gray-light);
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.07);
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-body.dark .skill-category {
-  background-color: #2a2a2a; /* Slightly lighter than pure gray-dark for contrast */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.skill-category h4 {
-  font-size: 1.4rem; /* Slightly larger category title */
-  color: var(--accent);
-  margin-top: 0;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--accent);
-  font-weight: 700;
-}
-
-.skill-category ul {
-  list-style: none; /* Remove default bullets */
-  padding-left: 0;
-  margin: 0;
-}
-
-.skill-category li {
-  margin-bottom: 0.85rem; /* Space between list items */
-  line-height: 1.7;
-  font-size: 1rem;
-  padding-left: 1.5rem; /* Indent for custom bullet */
-  position: relative;
-}
-
-.skill-category li::before { /* Custom bullet point */
-  content: '▹'; /* Or '▸', '✓', etc. */
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-weight: bold;
-  font-size: 1.2rem;
-  line-height: 1; /* Align with text */
-}
-
-
-.skill-category li strong {
-  font-weight: 600; /* Keep strong tags bold */
-  color: var(--heading-color-light);
-}
-
-body.dark .skill-category li strong {
-  color: var(--heading-color-dark);
-}
-
-/* Portfolio Grid Styles */
+/* === Portfolio Section === */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); /* Responsive grid columns */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
+
 .portfolio-card {
-  background: var(--gray-light);
+  background: #222;
+  color: #eee;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
 }
-body.dark .portfolio-card {
-  background: #222;
-  color: #eee;
-}
+
 .portfolio-card:hover,
-.portfolio-card:focus { /* Hover and focus states for accessibility */
+.portfolio-card:focus {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  outline: none; /* Custom focus styling preferred over default */
+  box-shadow: 0 10px 25px rgba(57, 255, 20, 0.4);
+  outline: none;
 }
-body.dark .portfolio-card:hover,
-body.dark .portfolio-card:focus {
-  box-shadow: 0 10px 25px var(--accent);
-}
+
 .portfolio-image {
   height: 180px;
   background-position: center;
   background-size: cover;
   border-bottom: 2px solid var(--accent);
 }
+
 .portfolio-title {
   padding: 1rem;
   font-weight: 700;
-  color: #111;
-  flex-grow: 1; /* Ensures title area takes remaining space */
-}
-body.dark .portfolio-title {
   color: var(--text-dark);
+  flex-grow: 1;
 }
 
-/* CV Download Button Styles */
-/* Section containing the CV button - for centering */
-#resume {
-  text-align: center; /* Center inline or inline-block children */
+/* === Skills, Experience, Certificates (Card Styles) === */
+.skills-detailed-list, .certificates-container {
+  max-width: 800px;
+  margin: 2rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* === Skills, Experience, Certificates (Simplified Item Styles) === */
+.skill-category, .experience-item, .certificate-item, .language-item {
+  text-align: left;
+  /* Ya no tienen estilos de caja propios. El padding y fondo lo da el .content-box */
+}
+
+.blog-intro-box {
+  margin: 0 auto;
+  max-width: 700px;
+  text-align: center;
+}
+
+/* Separadores visuales para los items dentro de un content-box */
+.skill-category:not(:last-child),
+.certificate-item:not(:last-child),
+.language-item:not(:last-child) {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #444;
+}
+
+.skill-category h4, .experience-item h4, .certificate-item h4 {
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+
+.experience-item .experience-dates, .certificate-item .certificate-date {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-dark);
+  opacity: 0.8;
+  margin-bottom: 0.85rem;
+}
+
+.experience-item ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.experience-item li {
+  margin-bottom: 0.6rem;
+  line-height: 1.65;
+}
+
+.skill-category ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.skill-category li {
+  margin-bottom: 0.85rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.skill-category li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.skill-category li strong {
+  font-weight: 600;
+  color: var(--heading-color-dark);
+}
+
+.certificate-item .certificate-issuer {
+  font-weight: 600;
+  opacity: 0.9;
+  margin-bottom: 0.3rem;
+}
+
+.btn-certificate-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent);
+  color: #111;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 5px rgba(57, 255, 20, 0.3);
+}
+
+.btn-certificate-link:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 4px 8px rgba(46, 204, 64, 0.4);
+}
+
+/* === Languages Section === */
+.languages-container {
+  max-width: 700px;
+  margin: 2rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.language-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.language-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--heading-color-dark);
+}
+
+.language-level-text {
+  font-size: 0.95rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.language-progress-bar {
+  width: 100%;
+  height: 14px;
+  background-color: #383838;
+  border-radius: 7px;
+  overflow: hidden;
+  border: 1px solid #505050;
+}
+
+.language-progress {
+  height: 100%;
+  background-color: var(--accent);
+  border-radius: 7px;
+  transition: width 0.8s ease-in-out;
+  box-shadow: 0 0 8px var(--accent), inset 0 0 3px rgba(255,255,255,0.2);
+}
+
+/* === Blog Intro & CV Section === */
+.blog-intro-box {
+  margin: 0 auto 1.75rem auto;
+  max-width: 700px;
+  text-align: center;
+}
+
+.blog-intro-box p {
+  margin: 0 0 1.5rem 0;
+  line-height: 1.7;
 }
 
 .btn-download {
   display: inline-block;
-  padding: 0.85rem 2.5rem; /* Increased padding for a larger button */
+  padding: 0.85rem 2.5rem;
   background: var(--accent);
   color: #111;
   font-weight: 700;
-  font-size: 1.15rem; /* Slightly larger font */
+  font-size: 1.15rem;
   border-radius: 25px;
-  text-decoration: none;
   box-shadow: 0 0 15px var(--accent);
   transition: background 0.3s, box-shadow 0.3s;
 }
+
 .btn-download:hover {
   background: var(--accent-hover);
   box-shadow: 0 0 25px var(--accent-hover);
 }
 
-/* Contact Form Styles */
-form {
+/* === Contact Section (CORRECTED) === */
+.contact-section {
   max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-input, textarea {
-  padding: 0.75rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: inherit;
-  resize: vertical; /* Allows textarea to be resized vertically only */
-  transition: border-color 0.3s;
-  background: var(--bg-light);
-  color: var(--text-light);
-}
-body.dark input,
-body.dark textarea {
-  background: #333;
-  border-color: #555;
-  color: var(--text-dark);
-}
-input:focus, textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 6px var(--accent);
-}
-button[type="submit"] { /* Submit button */
-  background: var(--accent);
-  border: none;
-  color: #111;
-  padding: 1rem 2rem;
-  font-weight: 700;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-button[type="submit"]:hover {
-  background: var(--accent-hover);
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
 }
 
-/* Modal Styles (for portfolio projects) */
-.modal-bg { /* Fullscreen background overlay for modal */
+.contact-divider {
+  margin: 0.5rem auto 2rem;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 2px;
+}
+/* === Animated Content Box for Sections === */
+.content-box {
+  /* Estilo base, se aplicará a las secciones impares (Proyectos, Experiencia, etc.) */
+  background: var(--card-bg); /* #2a2a2a */
+  padding: 2.5rem;
+  box-shadow: 0 8px 20px rgba(57, 255, 20, 0.12);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(57, 255, 20, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  margin-top: 2rem; /* Espacio entre el título de la sección y la caja */
+}
+
+/* Estilo alternativo para las secciones pares (Sobre mí, Habilidades, etc.) */
+body > section:nth-of-type(even) .content-box {
+  background: #252525; /* Un gris un poco más oscuro y frío */
+  border-color: rgba(57, 255, 20, 0.15); /* Borde verde un poco más tenue */
+  box-shadow: 0 8px 20px rgba(57, 255, 20, 0.09); /* Sombra ligeramente más suave */
+}
+
+/* Aumentamos la especificidad del hover para que la animación de la sombra funcione en todas las secciones */
+body > section .content-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(57, 255, 20, 0.3);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #444;
+  background: #1a1a1a;
+  color: var(--text-dark);
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
+}
+
+.btn-submit {
+  display: inline-block;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background: var(--accent-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(57, 255, 20, 0.2);
+}
+
+/* === Modal === */
+.modal-bg {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background-color: rgba(0,0,0,0.8);
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 2000; /* Ensures modal is on top of everything */
+  z-index: 2000;
   padding: 1rem;
 }
-.modal-bg.active { /* Class to show the modal */
+
+.modal-bg.active {
   display: flex;
 }
-.modal-content { /* The actual modal box */
-  background: var(--bg-light);
-  color: var(--text-light);
+
+.modal-content {
+  background: #222;
+  color: #eee;
   max-width: 600px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   border-radius: 12px;
   padding: 1.5rem;
-  position: relative; /* For positioning close button */
+  position: relative;
   box-shadow: 0 0 20px rgba(0,0,0,0.7);
 }
-body.dark .modal-content {
-  background: #222;
-  color: #eee;
-}
-.modal-close { /* Close button (X) for modal */
+
+.modal-close {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -683,715 +573,153 @@ body.dark .modal-content {
   cursor: pointer;
   font-weight: 700;
 }
-.modal-image { /* Image container within the modal */
+
+.modal-image {
   height: 300px;
   background-position: center;
-  background-size: contain; /* Ensures whole image is visible, doesn't crop */
+  background-size: contain;
   background-repeat: no-repeat;
   margin-bottom: 1rem;
 }
 
-/* Media Queries for Responsive Design */
-@media (max-width: 600px) {
-  header {
-    /* flex-direction: column; */ /* Considera si aún necesitas esto. Con el menú hamburguesa,
-                                     quizás quieras que el header siga en fila para alinear
-                                     el botón de menú y el de tema. */
-    padding: 0.75rem 1rem;
-  }
-  /* nav ul { */ /* Estos estilos probablemente ya no son necesarios aquí,
-                 ya que nav#main-nav se gestionará de forma diferente. */
-    /* flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 0.5rem; */
-  /* } */
-  .hero h1 {
-    font-size: clamp(2rem, 6vw, 2.5rem);
-  }
-  /* ... otros estilos existentes para 600px ... */
+/* === Footer === */
+.footer-content {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: var(--gray-dark);
+  color: var(--text-dark);
 }
 
-/* COMIENZO: Estilos para Navegación Móvil (Menú Hamburguesa) */
-@media (max-width: 850px) {
-  .menu-toggle-btn {
-    display: block; /* Muestra el botón hamburguesa en pantallas pequeñas */
-  }
-
-  /* Si tu header usa flexbox con space-between, el botón de menú
-     y el de tema se alinearán en los extremos. El nav se posicionará de forma fija. */
-  header {
-     /* Asegúrate de que el header permita que el botón de menú y el de tema
-        estén visibles y bien posicionados. Por ejemplo, si antes se volvía 'column',
-        quizás ahora deba permanecer 'row' y usar 'justify-content: space-between'.
-        Si tu `header` global ya tiene `display: flex; justify-content: space-between;`,
-        es posible que no necesites cambiarlo aquí, solo asegúrate de que no haya
-        una regla en `@media (max-width: 600px)` que lo ponga en columna si no lo deseas.
-     */
-  }
-
-  nav#main-nav {
-    position: fixed; /* Posición fija para cubrir la pantalla */
-    top: 0;
-    left: -100%; /* Comienza fuera de la pantalla a la izquierda */
-    width: 75%;   /* Ancho del menú desplegable (ajusta según necesites) */
-    max-width: 300px; /* Ancho máximo para el menú */
-    height: 100vh; /* Altura completa de la ventana */
-    background-color: var(--bg-light); /* Fondo del menú en tema claro */
-    padding-top: 4rem; /* Espacio superior (ej. para el botón de cierre si estuviera dentro o para el header) */
-    transition: left 0.35s ease-in-out; /* Animación suave para deslizar */
-    z-index: 1001; /* Asegura que esté sobre el contenido pero debajo del botón de toggle si es necesario */
-    overflow-y: auto; /* Permite scroll si hay muchos enlaces */
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* Sombra sutil */
-  }
-
-  body.dark nav#main-nav {
-    background-color: var(--bg-dark); /* Fondo del menú en tema oscuro */
-    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-  }
-
-  nav#main-nav.active {
-    left: 0; /* Muestra el menú deslizándolo desde la izquierda */
-  }
-
-  nav#main-nav ul {
-    flex-direction: column; /* Los enlaces se apilan verticalmente */
-    align-items: flex-start; /* Alinea los items a la izquierda */
-    gap: 0; /* Quita el gap, se manejará con padding en li/a */
-    padding: 1rem; /* Padding interno para la lista de enlaces */
-  }
-
-  nav#main-nav ul li {
-    width: 100%; /* Cada item de la lista ocupa todo el ancho del menú */
-  }
-
-  nav#main-nav ul li a {
-    display: block; /* Hace que el enlace ocupe todo el 'li' para facilitar el clic */
-    padding: 0.85rem 1rem; /* Padding para cada enlace */
-    font-size: 1.05rem; /* Tamaño de fuente para los enlaces del menú */
-    border-bottom: 1px solid var(--gray-light); /* Separador entre enlaces */
-    transition: background-color 0.2s;
-    color: var(--text-light); /* Asegura el color del texto en tema claro */
-  }
-  body.dark nav#main-nav ul li a {
-    border-bottom: 1px solid var(--gray-dark);
-    color: var(--text-dark); /* Asegura el color del texto en tema oscuro */
-  }
-
-  nav#main-nav ul li:last-child a {
-    border-bottom: none; /* Quita el borde del último elemento */
-  }
-
-  nav#main-nav ul li a:hover,
-  nav#main-nav ul li a:focus {
-    background-color: var(--gray-light); /* Color de fondo al pasar el ratón/foco */
-    color: var(--accent); /* Cambia el color del texto al de acento */
-  }
-  body.dark nav#main-nav ul li a:hover,
-  body.dark nav#main-nav ul li a:focus {
-    background-color: var(--gray-dark);
-  }
-
-  /* Evita el scroll del body cuando el menú móvil está abierto */
-  body.mobile-nav-active {
-    overflow: hidden;
-  }
-}
-/* FIN: Estilos para Navegación Móvil (Menú Hamburguesa) */
-
-
-/* Media Query for Larger Desktops (Example) */
-@media (min-width: 1600px) {
-  /* ... tus estilos existentes para pantallas grandes ... */
+.footer-content .social-links {
+  margin: 0.75rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
 }
 
-/* Media Query for Larger Desktops (Example) */
-@media (min-width: 1600px) {
-  section {
-    max-width: 1300px; /* Allow content to be wider */
-    padding: 5rem 3rem;
-  }
-  .hero h1 {
-    font-size: clamp(3rem, 4vw, 4rem); /* Larger hero title */
-  }
-  .section-title {
-    font-size: clamp(2rem, 3vw, 3rem); /* Larger section titles */
-  }
-  .about-container {
-    max-width: 1100px; /* Wider about container */
-  }
-  .skills-detailed-list {
-    max-width: 900px; /* Wider skills list on very large screens */
-  }
-  .portfolio-grid {
-  grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
-  }
-}
-/* Neon Mouse Trail - Continuous Line (SVG) */
-#neon-trail-svg {
-  /* Estilos básicos para el contenedor SVG ya se aplican en JS:
-     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-     pointer-events: none; z-index: 9998; */
+.footer-content .social-links a {
+  color: var(--accent);
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.neon-svg-line {
-  stroke: var(--accent); /* Color de la línea */
-  stroke-width: 3px;    /* Grosor de la línea */
-  stroke-linecap: round;/* Extremos redondeados para uniones suaves */
-
-  /* Efecto neón usando filtro SVG (similar a box-shadow) */
-  filter: drop-shadow(0 0 2px var(--accent))
-          drop-shadow(0 0 5px var(--accent))
-          drop-shadow(0 0 8px var(--accent-hover)); /* Un poco de brillo extra */
-
-  opacity: 0.9; /* Opacidad inicial del segmento de línea */
-  transition: opacity 0.5s ease-out; /* Duración y suavidad del desvanecimiento */
+.footer-content .social-links a:hover {
+  color: var(--accent-hover);
+  transform: translateY(-4px);
 }
 
-/* Estilos para el Logo en la sección Hero (ACTUALIZADOS Y MEJORADOS) */
-.hero-logo-wrapper {
-  display: inline-block; /* Permite centrar con text-align:center del padre (.hero-content) */
-  position: relative;     /* Necesario para posicionar los elementos hijos absolutamente */
-  margin-bottom: 0rem;  /* Espacio entre el logo y el título h1 */
-
-  /* Definir tamaño, forma circular y recorte para el wrapper */
-  width: 400px; /* Ajusta este tamaño para que sea igual o un poco más grande que el anillo parpadeante */
-  height: 400px;
-  border-radius: 50%;   /* Hace que el contenedor sea un círculo perfecto */
-  overflow: hidden;     /* Recorta cualquier contenido de los hijos que se extienda más allá */
+.footer-content .social-links svg {
+  width: 26px;
+  height: 26px;
 }
 
-.hero-logo {
-  display: block;
-  max-width: 350px;       /* Tamaño de tu imagen de logo */
+.footer-content p.footer-contact-link {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* === Animations & Effects === */
+/* Neon Text Bar */
+.section-neon-text-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   height: auto;
-  position: absolute;     /* Para centrarlo dentro del wrapper */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;             /* El logo estará por encima de todos los anillos */
+  padding: 8px 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
 }
 
-/* Anillo de Neón Giratorio Principal */
-.hero-logo-neon-ring {
-  position: absolute;
-  width: 380px; /* Diámetro del anillo giratorio */
-  height: 380px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 3px solid var(--accent);
-  border-radius: 50%;
-  box-shadow:
-    0 0 5px var(--accent),
-    0 0 10px var(--accent),
-    0 0 15px var(--accent),
-    0 0 25px var(--accent-hover),
-    inset 0 0 5px rgba(57, 255, 20, 0.5);
-  z-index: 1; /* Debajo del logo, pero encima del anillo parpadeante */
-  animation: rotate-neon-ring 10s linear infinite;
+.section-neon-text-bar .neon-text-wrapper {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee-scroll 40s linear infinite; /* Slower scroll */
 }
 
-/* Efecto "Hacker" REIMAGINADO como Anillo de Neón Parpadeante usando ::before */
-.hero-logo-wrapper::before {
-  content: '';
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  z-index: 0; /* Detrás del anillo giratorio y del logo */
-  opacity: 0;
-  /* ANTERIORMENTE: animation: neon-ring-flicker 2.8s infinite ease-in-out; */
-  animation: hacker-flicker-noise 2.5s infinite ease-in-out; /* Nueva animación más errática y larga */
+.section-neon-text-bar .neon-text-content {
+  display: inline-block;
+  padding-right: 60px;
+  font-size: clamp(0.8rem, 1.8vw, 1.1rem);
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 4px var(--accent), 0 0 8px var(--accent), 0 0 12px var(--accent-hover);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
-/* Desactivamos ::after ya que el efecto principal estará en ::before */
-.hero-logo-wrapper::after {
-  display: none;
+@keyframes marquee-scroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-25%); } /* Corrected for 4 text copies */
 }
 
-/* Animación para la rotación del anillo principal */
-@keyframes rotate-neon-ring {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-/* Animación para el parpadeo del anillo de neón (efecto hacker) */
-@keyframes neon-ring-flicker {
-  0%, 100% { /* Comienza y termina apagado o muy tenue */
-    opacity: 0;
-    box-shadow: none;
-  }
-  5% { /* Encendido suave */
-    opacity: 0.6;
-    box-shadow:
-      0 0 5px var(--accent),
-      0 0 10px var(--accent),
-      0 0 15px var(--accent-hover);
-  }
-  10% { /* Más intenso */
-    opacity: 1;
-    box-shadow:
-      0 0 7px var(--accent),
-      0 0 12px var(--accent),
-      0 0 20px var(--accent),
-      0 0 30px var(--accent-hover);
-  }
-  15% { /* Apagado rápido */
-    opacity: 0.1;
-    box-shadow: 0 0 3px var(--accent);
-  }
-  20% { opacity: 0; box-shadow: none; } /* Completamente apagado */
-  /* Pausa */
-  50% { opacity: 0; box-shadow: none; }
-  55% { /* Otro pulso de encendido */
-    opacity: 0.8;
-    box-shadow:
-      0 0 6px var(--accent),
-      0 0 11px var(--accent),
-      0 0 18px var(--accent-hover);
-  }
-  65% { /* Máximo brillo del pulso */
-    opacity: 1;
-    box-shadow:
-      0 0 8px var(--accent),
-      0 0 15px var(--accent),
-      0 0 25px var(--accent),
-      0 0 35px var(--accent-hover);
-  }
-  75% { /* Desvanecimiento */
-    opacity: 0.4;
-    box-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent);
-  }
-  80% { opacity: 0; box-shadow: none; } /* Apagado antes de repetir */
-}
-/* Nueva Animación de "Glitch" para el Anillo Principal */
-@keyframes ring-hacker-glitch {
-  0%, 13%, 29%, 34%, 99%, 100% { /* Estado normal del anillo */
-    box-shadow:
-      0 0 5px var(--accent),
-      0 0 10px var(--accent),
-      0 0 15px var(--accent),
-      0 0 25px var(--accent-hover),
-      inset 0 0 5px rgba(57, 255, 20, 0.5);
-    border-color: var(--accent);
-    opacity: 1;
-  }
-  /* Momento de Glitch 1 - Colores alternos y parpadeo */
-  10% {
-    box-shadow:
-      0 0 3px #ff00ff, /* Glitch Magenta */
-      0 0 8px #ff00ff,
-      0 0 15px var(--accent), /* Mantiene algo del brillo original */
-      inset 0 0 3px rgba(255, 0, 255, 0.5);
-    border-color: #ff00ff; /* Borde Magenta */
-    opacity: 0.75;
-  }
-  11.5% { /* Momento de Glitch 2 */
-     box-shadow:
-      0 0 5px var(--accent),
-      0 0 10px #00ffff, /* Glitch Cyan */
-      0 0 20px var(--accent-hover),
-      inset 0 0 5px rgba(0, 255, 255, 0.5);
-    border-color: #00ffff; /* Borde Cyan */
-    opacity: 0.85;
-  }
-  12.5% { /* Retorno rápido a normal después del primer estallido de glitch */
-    box-shadow:
-      0 0 5px var(--accent),
-      0 0 10px var(--accent),
-      0 0 15px var(--accent),
-      0 0 25px var(--accent-hover),
-      inset 0 0 5px rgba(57, 255, 20, 0.5);
-    border-color: var(--accent);
-    opacity: 1;
-  }
-  /* Momento de Glitch 3 - Otro color y parpadeo más fuerte */
-  30% {
-    box-shadow:
-      0 0 8px var(--accent),
-      0 0 18px var(--accent-hover),
-      0 0 30px #f00, /* Glitch Rojo */
-      inset 0 0 8px rgba(255,0,0,0.4);
-    border-color: #f00; /* Borde Rojo */
-    opacity: 0.6;
-  }
-  32% { /* Retorno rápido a normal después del segundo estallido */
-    opacity: 1;
-    box-shadow:
-      0 0 5px var(--accent),
-      0 0 10px var(--accent),
-      0 0 15px var(--accent),
-      0 0 25px var(--accent-hover),
-      inset 0 0 5px rgba(57, 255, 20, 0.5);
-    border-color: var(--accent);
-  }
-}
-/* Anillo de Neón Giratorio Principal */
-.hero-logo-neon-ring {
-  position: absolute;
-  width: 380px; /* Diámetro del anillo giratorio */
-  height: 380px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 3px solid var(--accent);
-  border-radius: 50%;
-  box-shadow:
-    0 0 5px var(--accent),
-    0 0 10px var(--accent),
-    0 0 15px var(--accent),
-    0 0 25px var(--accent-hover),
-    inset 0 0 5px rgba(57, 255, 20, 0.5);
-  z-index: 1; /* Debajo del logo, pero encima del anillo parpadeante */
-  /* ANTERIORMENTE: animation: rotate-neon-ring 10s linear infinite; */
-  animation:
-    rotate-neon-ring 10s linear infinite, /* Animación de rotación continua */
-    ring-hacker-glitch 2.5s infinite steps(10, end); /* Nueva animación de glitch, con pasos abruptos */
-}
-/* Animación para el parpadeo del anillo de neón (efecto hacker) - REEMPLAZA LA ANTERIOR o renómbrala */
-@keyframes hacker-flicker-noise { /* Nueva animación más errática */
-  0%, 100% {
-    opacity: 0;
-    box-shadow: none;
-  }
-  /* Flash rápido 1 - Verde */
-  2% {
-    opacity: 0.7;
-    box-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent-hover);
-  }
-  4% {
-    opacity: 0;
-    box-shadow: none;
-  }
-  /* Ruido digital sostenido con colores */
-  20% {
-    opacity: 0.85;
-    box-shadow:
-      0 0 7px 2px #ff00ff, /* Magenta */
-      3px -2px 10px 1px #00ffff, /* Cyan */
-      -2px 3px 12px 2px var(--accent); /* Verde */
-  }
-  25% {
-    opacity: 0.5;
-    box-shadow:
-      2px 2px 8px 1px var(--accent),
-      -3px 1px 10px 2px #ff00ff,
-      0 0 5px 1px #333; /* Sombra oscura */
-  }
-  30% {
-    opacity: 0.9;
-    box-shadow:
-      0 0 10px 3px #00ffff,
-      0 0 15px 2px var(--accent),
-      5px 5px 5px 0px #111; /* Elemento más oscuro */
-  }
-  35% { /* Desvanecimiento del ruido */
-    opacity: 0.2;
-    box-shadow: 0 0 5px var(--accent);
-  }
-  40%, 59% { /* Pausa */
-    opacity: 0;
-    box-shadow: none;
-  }
-  /* Otro flash rápido - Cyan */
-  60% {
-    opacity: 0.65;
-    box-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
-  }
-  63% {
-    opacity: 0;
-    box-shadow: none;
-  }
-  /* Parpadeo verde más largo e intenso */
-  70% {
-    opacity: 1;
-    box-shadow:
-      0 0 8px var(--accent),
-      0 0 15px var(--accent),
-      0 0 25px var(--accent),
-      0 0 35px var(--accent-hover);
-  }
-  78% {
-    opacity: 0.3;
-     box-shadow:
-      0 0 5px var(--accent),
-      0 0 10px var(--accent-hover);
-  }
-  85% { /* Fin del ciclo */
-    opacity: 0;
-    box-shadow: none;
-  }
-}
-
-/* INICIO: Estilos para Lluvia de Puntos Neón (Efecto Hacker) */
-#hacker-rain-container {
+/* === Spline 3D Scene Viewer === */
+spline-viewer {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Importante para contener los puntos */
-  pointer-events: none; /* Para que no interfiera con los clics */
-  z-index: 0; /* Detrás del contenido principal del hero, igual que floating-computers */
+  z-index: 0; /* Detrás del texto y los botones */
+  outline: none; /* Evita un borde al hacer clic */
+}
+
+/* Hacker Rain */
+#hacker-rain-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .neon-dot {
   position: absolute;
-  width: 3px; /* Tamaño del punto */
-  height: 3px; /* Tamaño del punto */
+  width: 3px;
+  height: 3px;
   background-color: var(--accent);
-  border-radius: 50%; /* Hace los puntos circulares */
-  box-shadow: 0 0 5px var(--accent),
-              0 0 10px var(--accent),
-              0 0 15px var(--accent-hover);
-  opacity: 0; /* Comienzan invisibles, la animación los muestra */
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent), 0 0 15px var(--accent-hover);
+  opacity: 0;
   animation: fall linear infinite;
 }
 
 @keyframes fall {
-  0% {
-    transform: translateY(-50px); /* Comienzan un poco por encima de la pantalla */
-    opacity: 0;
-  }
-  10% { /* Aparecen gradualmente */
-    opacity: 0.7;
-  }
-  90% { /* Se mantienen visibles durante la caída */
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateY(100vh); /* Caen hasta el final de la pantalla */
-    opacity: 0; /* Desaparecen al final */
-  }
-}
-/* FIN: Estilos para Lluvia de Puntos Neón (Efecto Hacker) */
-
-/* INICIO: Estilos para Sección de Idiomas Mejorada */
-.languages-container {
-  max-width: 700px; /* Ajusta el ancho máximo según tu diseño */
-  margin: 2rem auto 0 auto; /* Centra el contenedor y añade espacio superior */
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem; /* Espacio entre cada tem de idioma */
+  0% { transform: translateY(-50px); opacity: 0; }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.7; }
+  100% { transform: translateY(100vh); opacity: 0; }
 }
 
-.language-item {
-  background-color: var(--gray-light);
-  padding: 1.25rem 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.07);
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-body.dark .language-item {
-  background-color: #2a2a2a; /* Un poco más claro que --gray-dark para contraste */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.language-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.85rem; /* Espacio entre la info y la barra */
-}
-
-.language-name {
-  font-size: 1.2rem; /* Tamaño del nombre del idioma */
-  font-weight: 600;
-  color: var(--heading-color-light);
-}
-
-body.dark .language-name {
-  color: var(--heading-color-dark);
-}
-
-.language-level-text {
-  font-size: 0.95rem;
-  font-style: italic;
-  color: var(--text-light);
-  opacity: 0.85;
-}
-
-body.dark .language-level-text {
-  color: var(--text-dark);
-}
-
-.language-progress-bar {
-  width: 100%;
-  height: 14px; /* Altura de la barra de progreso */
-  background-color: #e9e9e9; /* Color de fondo de la barra (track) */
-  border-radius: 7px; /* Bordes redondeados para la barra */
-  overflow: hidden; /* Asegura que el progreso no se salga */
-  border: 1px solid #d0d0d0; /* Borde sutil para la barra */
-}
-
-body.dark .language-progress-bar {
-  background-color: #383838; /* Fondo de barra en modo oscuro */
-  border-color: #505050;
-}
-
-.language-progress {
-  height: 100%;
-  background-color: var(--accent); /* Color de la barra de progreso (tu verde neón) */
-  border-radius: 7px; /* Mismos bordes redondeados */
-  transition: width 0.8s ease-in-out; /* Animación suave si el ancho cambia */
-  box-shadow: 0 0 8px var(--accent), inset 0 0 3px rgba(255,255,255,0.2); /* Brillo neón y un ligero relieve interior */
-}
-/* FIN: Estilos para Sección de Idiomas Mejorada */
-
-/* START: Blog Intro Box Styles */
-.blog-intro-box {
-  background-color: var(--gray-light);
-  padding: 1.75rem; /* Espaciado interno generoso */
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.07);
-  transition: background-color 0.3s, box-shadow 0.3s;
-  margin: 0 auto 1.75rem auto; /* Centra la caja y añade margen inferior */
-  max-width: 700px; /* Ancho máximo para la caja, similar a otros elementos */
-  text-align: center; /* Centra el texto y el botón dentro de la caja */
-}
-
-body.dark .blog-intro-box {
-  background-color: #2a2a2a; /* Color de fondo para modo oscuro, consistente */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.blog-intro-box p {
-  margin-top: 0; /* Elimina el margen superior por defecto del párrafo */
-  margin-bottom: 1.5rem; /* Espacio entre el texto y el botón */
-  line-height: 1.7; /* Mejora la legibilidad del texto */
-  color: inherit; /* Hereda el color del texto para el tema */
-}
-/* El botón .btn-accent ya tiene sus estilos y se centrará por el text-align:center del padre */
-/* END: Blog Intro Box Styles */
-
-/* START: Certificates Section Styles */
-.certificates-container {
-  max-width: 800px; /* Ajusta el ancho si es necesario */
-  margin: 2rem auto 0 auto; /* Centra el contenedor y añade margen superior */
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem; /* Espacio entre cada certificado */
-}
-
-.certificate-item {
-  background-color: var(--gray-light);
-  padding: 1.5rem 1.75rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.07);
-  transition: background-color 0.3s, box-shadow 0.3s;
-  text-align: left; /* Alineación del texto dentro de la tarjeta */
-}
-
-body.dark .certificate-item {
-  background-color: #2a2a2a; /* Consistente con otros elementos en modo oscuro */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.certificate-item h4 {
-  font-size: 1.25rem;
-  color: var(--accent);
-  margin-top: 0;
-  margin-bottom: 0.3rem; /* Menos espacio antes del emisor */
-  font-weight: 700;
-}
-
-.certificate-item .certificate-issuer {
-  font-size: 1rem; /* Ligeramente más pequeño o igual que el texto normal */
-  font-weight: 600; /* Semi-negrita para destacar */
-  color: var(--text-light); /* O un color secundario si prefieres */
-  margin-bottom: 0.3rem;
+/* Mouse Trail */
+.neon-svg-line {
+  stroke: var(--accent);
+  stroke-width: 3px;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 2px var(--accent)) drop-shadow(0 0 5px var(--accent)) drop-shadow(0 0 8px var(--accent-hover));
   opacity: 0.9;
-}
-body.dark .certificate-item .certificate-issuer {
-  color: var(--text-dark);
+  transition: opacity 0.5s ease-out;
 }
 
-.certificate-item .certificate-date {
-  font-size: 0.9rem;
-  font-style: italic;
-  color: var(--text-light);
-  opacity: 0.8;
-  margin-bottom: 0.75rem; /* Espacio antes de la descripción */
-}
-body.dark .certificate-item .certificate-date {
-  color: var(--text-dark);
-}
-
-.certificate-item .certificate-description {
-  font-size: 1rem;
-  line-height: 1.65; /* Buena legibilidad para párrafos */
-  margin-bottom: 1.25rem; /* Espacio antes del botón/enlace */
+/* === Responsive Design === */
+@media (max-width: 850px) {
+  /* No hamburger menu, just wrap the navigation */
+  header {
+    justify-content: center;
+  }
+  nav ul {
+    gap: 0.5rem 1rem;
+  }
 }
 
-.btn-certificate-link {
-  display: inline-block; /* Para que el padding y margen funcionen bien */
-  padding: 0.5rem 1rem;
-  background-color: var(--accent);
-  color: #111; /* Texto oscuro para buen contraste con el fondo de acento */
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
-  box-shadow: 0 2px 5px rgba(57, 255, 20, 0.3); /* Sombra sutil del color de acento */
-}
-
-.btn-certificate-link:hover {
-  background-color: var(--accent-hover);
-  color: #111;
-  box-shadow: 0 4px 8px rgba(46, 204, 64, 0.4); /* Sombra más pronunciada al pasar el ratón */
-}
-
-.btn-certificate-link .external-link-icon {
-  margin-left: 0.3em;
-  font-size: 0.9em; /* Ajusta el tamaño del icono si es necesario */
-  display: inline-block; /* Necesario para transformaciones */
-  transition: transform 0.2s ease-out;
-}
-
-.btn-certificate-link:hover .external-link-icon {
-  transform: translateX(2px) translateY(-2px); /* Pequeño efecto de "salida" */
-}
-/* END: Certificates Section Styles */
-
-/* Footer Social Links */
-.footer-content .social-links {
-  margin-top: 0.75rem; /* Espacio sobre los iconos */
-  margin-bottom: 0.75rem; /* Espacio debajo de los iconos */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.25rem; /* Espacio entre iconos */
-}
-
-.footer-content .social-links a {
-  color: var(--accent); /* Color de los iconos, igual que los otros enlaces del footer */
-  display: inline-flex; /* Para alinear bien el SVG y permitir transformaciones */
-  align-items: center;
-  justify-content: center;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.footer-content .social-links a:hover {
-  color: var(--accent-hover); /* Color al pasar el ratón */
-  transform: translateY(-4px) scale(1.1); /* Efecto de elevación y ligero zoom */
-}
-
-.footer-content .social-links svg {
-  width: 26px; /* Tamaño del icono */
-  height: 26px;
-}
-
-/* Párrafo del enlace de contacto en el footer */
-.footer-content p.footer-contact-link {
-    margin-top: 0.5rem; /* Espacio después de los iconos sociales */
-    margin-bottom: 0; /* Ajusta si es necesario */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }

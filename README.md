@@ -7,7 +7,7 @@ Este repositorio contiene mi primer portafolio web, desarrollado como un primer 
 - **HTML5**
 - **CSS3**
 - **JavaScript**
-- **IntelliJ IDEA** como entorno de desarrollo (IDE)
+- **IntelliJ IDEA Y VSCode** como entorno de desarrollo (IDE)
 - Uso de **Inteligencia Artificial**
 
 ## 🌐 Vista en línea
